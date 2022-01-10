@@ -1,0 +1,40 @@
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+
+CREATE TABLE IF NOT EXISTS `coda_main` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `codice` varchar(20) NOT NULL,
+  `ulss` varchar(255) NOT NULL,
+  `luogo` varchar(255) NOT NULL,
+  `tipo` varchar(255) NOT NULL,
+  `tabellone` varchar(20) NOT NULL,
+  `ultimo_numero` varchar(20) NOT NULL,
+  `token_scorrimento` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `codice` (`codice`),
+  FULLTEXT KEY `codice_3` (`codice`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `coda_user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `password` text NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `nome` (`nome`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci AUTO_INCREMENT=1 ;
+
+CREATE TABLE IF NOT EXISTS `coda_variabili` (
+  `nome` varchar(150) NOT NULL,
+  `valore` text NOT NULL,
+  PRIMARY KEY (`nome`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci AUTO_INCREMENT=1 ;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
